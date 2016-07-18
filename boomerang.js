@@ -1326,7 +1326,7 @@ BOOMR_check_doc_domain();
 
 		make_logger = function(l) {
 			return function(m, s) {
-				this.log(m, l, "boomerang" + (s?"."+s:""));
+				//this.log(m, l, "boomerang" + (s?"."+s:""));
 				return this;
 			};
 		};
