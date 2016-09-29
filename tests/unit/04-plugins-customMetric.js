@@ -115,7 +115,7 @@ describe("BOOMR.plugins.CustomMetric", function() {
 				assert.deepEqual(original, expected);
 			});
 
-			it("should modify the beacon given an erroneous callback and a valid callback", function() {
+			it("should modify the beacon given invalid callbacks and a valid callback", function() {
 				var original = {
 					existing: "value"
 				};
@@ -128,9 +128,27 @@ describe("BOOMR.plugins.CustomMetric", function() {
 					CustomMetric: {
 						rules: [{
 							pattern: "callback",
-							property: "test.falure",
+							property: "test.failure",
 							value: function() {
 								throw Error("testing");
+							}
+						}, {
+							pattern: "callback",
+							property: "test.failure",
+							value: function() {
+								return null;
+							}
+						}, {
+							pattern: "callback",
+							property: "test.failure",
+							value: function() {
+								return undefined;
+							}
+						}, {
+							pattern: "callback",
+							property: "test.failure",
+							value: function() {
+								return NaN;
 							}
 						}, {
 							pattern: "callback",
