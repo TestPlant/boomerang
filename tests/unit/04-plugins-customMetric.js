@@ -13,8 +13,16 @@ describe("BOOMR.plugins.CustomMetric", function() {
 			assert.isFunction(BOOMR.plugins.CustomMetric.is_complete);
 		});
 
+		it("should always be complete", function() {
+			assert.isTrue(BOOMR.plugins.CustomMetric.is_complete());
+		});
+
 		it("should have a is_supported() function", function() {
 			assert.isFunction(BOOMR.plugins.CustomMetric.is_supported);
+		});
+
+		it("should always be supported", function() {
+			assert.isTrue(BOOMR.plugins.CustomMetric.is_supported());
 		});
 
 		it("should have an init() function", function() {
@@ -23,15 +31,6 @@ describe("BOOMR.plugins.CustomMetric", function() {
 
 		it("should have a parseRules() function", function() {
 			assert.isFunction(BOOMR.plugins.CustomMetric.parseRules);
-		});
-
-		it("should always be complete", function() {
-			assert.isTrue(BOOMR.plugins.CustomMetric.is_complete());
-		});
-
-		it("should always be complete", function() {
-			BOOMR.plugins.CustomMetric.init();
-			assert.isTrue(BOOMR.plugins.CustomMetric.is_complete());
 		});
 	});
 
